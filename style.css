@@ -20,9 +20,11 @@ body {
   color: var(--Very-dark-violet);
   font-weight: 500;
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  gap: 10px;
   /* font-size: 25px; */
 }
 
@@ -51,7 +53,9 @@ form {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: calc(15%);
+  /* height: 150%; */
+  /* padding-bottom: 50%; */
+  /* border: 1px red solid; */
   /* aspect-ratio: 1.6/1.2; */
   /* min-height: 260px;
   max-height: 300px; */
@@ -63,7 +67,7 @@ form {
   aspect-ratio: 3/1.8;
   min-width: 280px;
   border-radius: 8px;
-  max-height: 220px;
+  max-height: 240px;
   padding: 6%;
 }
 
@@ -73,7 +77,8 @@ form {
   background-size: cover;
   /* border: 1px goldenrod solid; */
   position: absolute;
-  top: 57%;
+  /* top: 18%; */
+  bottom: 0;
   color: var(--White);
   display: flex;
   flex-direction: column;
@@ -109,9 +114,14 @@ form {
   position: relative;
 }
 
+.none {
+  visibility: hidden;
+  margin-top: -22%;
+}
+
 form {
   /* border: 1px solid green;   */
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 label {
@@ -161,6 +171,14 @@ input {
   border-radius: 8px;
   letter-spacing: 1px;
   margin-top: 10px;
+  cursor: pointer;
+  transition: 200;
+}
+
+.btn:hover {
+  /* border: 2px solid var(--Very-dark-violet); */
+  /* color: var(--Very-dark-violet); */
+  background-color: hsla(278, 68%, 11%, 0.836);
 }
 
 .completed {
@@ -178,4 +196,14 @@ input {
   position: absolute;
   right: 12%;
   top: 44%;
+}
+
+@media (min-width: 500px) {
+  body {
+    font-size: 22px;
+  }
+
+  .cards {
+    letter-spacing: 2px;
+  }
 }
