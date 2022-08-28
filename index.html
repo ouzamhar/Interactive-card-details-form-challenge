@@ -35,23 +35,31 @@
       <form>
         <label
           >CARDHOLDER NAME
-          <input type="text" placeholder="e.g. Jane Appleseed" />
+          <input
+            type="text"
+            placeholder="e.g. Jane Appleseed"
+            id="input-name"
+          />
         </label>
         <label
           >CARD NUMBER
-          <input type="text" placeholder="e.g. 1234 5678 9123 0000" />
+          <input
+            type="text"
+            placeholder="e.g. 1234 5678 9123 0000"
+            id="input-number"
+          />
         </label>
         <div class="form-flex">
           <label
             >Exp. Date (MM/YY)
             <div class="date">
-              <input type="text" placeholder="MM" />
-              <input type="text" placeholder="YY" />
+              <input type="text" placeholder="MM" id="input-month" />
+              <input type="text" placeholder="YY" id="input-year" />
             </div>
           </label>
           <label class="cvc-label"
             >CVC
-            <input type="text" placeholder="e.g. 123" />
+            <input type="text" placeholder="e.g. 123" id="input-cvc" />
           </label>
         </div>
         <div class="btn">Confirm</div>

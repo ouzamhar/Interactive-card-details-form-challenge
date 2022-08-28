@@ -151,6 +151,7 @@ input {
   border-radius: 8px;
   /* border: none; */
   border: 1.5px var(--Light-grayish-violet) solid;
+  color: var(--Dark-grayish-violet);
 }
 
 input:focus {
@@ -172,7 +173,14 @@ input:focus {
   letter-spacing: 0.08em;
   border-radius: 8px;
   margin-top: 1em;
+  cursor: pointer;
 }
+
+.btn:hover {
+  background-color: hsla(278, 68%, 11%, 0.774);
+  color: #d8d3d3;
+}
+
 .cvc-label {
   margin-left: 0.1em;
 }
@@ -230,7 +238,7 @@ input:focus {
   }
   form {
     width: 40%;
-    max-width: 500px;
+    max-width: 450px;
   }
   .attribution {
     font-size: 14px;
