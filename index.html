@@ -24,7 +24,9 @@
           </div>
           <div class="card-footer">
             <div class="card-owner">Jane Appleseed</div>
-            <div class="card-exp">00/00</div>
+            <div class="card-exp">
+              <span class="month">00</span>/<span class="year">00</span>
+            </div>
           </div>
         </div>
         <div class="card-back card-display">
@@ -39,6 +41,7 @@
             type="text"
             placeholder="e.g. Jane Appleseed"
             id="input-name"
+            pattern="[a-zA-Z]+"
           />
         </label>
         <label
@@ -47,19 +50,39 @@
             type="text"
             placeholder="e.g. 1234 5678 9123 0000"
             id="input-number"
+            maxlength="19"
+            pattern="[0-9]+"
           />
         </label>
         <div class="form-flex">
           <label
             >Exp. Date (MM/YY)
             <div class="date">
-              <input type="text" placeholder="MM" id="input-month" />
-              <input type="text" placeholder="YY" id="input-year" />
+              <input
+                type="text"
+                maxlength="2"
+                placeholder="MM"
+                id="input-month"
+                pattern="[0-9]+"
+              />
+              <input
+                type="text"
+                maxlength="2"
+                placeholder="YY"
+                id="input-year"
+                pattern="[0-9]+"
+              />
             </div>
           </label>
           <label class="cvc-label"
             >CVC
-            <input type="text" placeholder="e.g. 123" id="input-cvc" />
+            <input
+              type="text"
+              placeholder="e.g. 123"
+              maxlength="3"
+              id="input-cvc"
+              pattern="[0-9]+"
+            />
           </label>
         </div>
         <div class="btn">Confirm</div>
@@ -78,6 +101,7 @@
       >
       Coded by Ouzamhar
     </div>
+    <script src="./script.js"></script>
     <!-- Thank you! We've added your card details Continue -->
   </body>
 </html>

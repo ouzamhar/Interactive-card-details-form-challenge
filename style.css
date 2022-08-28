@@ -263,3 +263,7 @@ input:focus {
     font-size: 30px;
   }
 }
+
+input:invalid {
+  border: 3px solid red;
+}
