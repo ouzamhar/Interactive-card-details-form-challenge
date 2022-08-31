@@ -264,6 +264,50 @@ input:focus {
   }
 }
 
-input:invalid {
-  border: 3px solid red;
+#input-number:invalid,
+#input-name:invalid {
+  border: 1px solid red;
 }
+
+#input-name:invalid + p::after {
+  content: "Wrong format, letters only";
+  /* position: absolute; */
+  display: block;
+  color: red;
+  margin-top: 0.5em;
+}
+#input-number:invalid + p::after {
+  content: "Wrong format, numbers only";
+  /* position: absolute; */
+  display: block;
+  color: red;
+  margin-top: 0.5em;
+}
+
+#input-month:invalid {
+  border: 1px solid red;
+}
+
+/* input:not(:focus):invalid {
+
+  border: 1px solid red;
+  width: 100%;
+} */
+
+/* input:invalid {
+  border: 1px yellow solid;
+} */
+
+/* input:not(:focus):not(:placeholder-shown):invalid {
+  content: "test";
+  display: block;
+  position: absolute;
+} */
+/* 
+.invalid {
+  color: var(--Red);
+  font-size: 0.7em;
+  margin-top: 0.5em;
+  font-weight: 500;
+  position: absolute;
+} */

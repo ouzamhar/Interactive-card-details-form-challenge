@@ -41,8 +41,10 @@
             type="text"
             placeholder="e.g. Jane Appleseed"
             id="input-name"
-            pattern="[a-zA-Z]+"
+            pattern="[a-zA-Z\s]+"
+            oninput="inputName()"
           />
+          <p></p>
         </label>
         <label
           >CARD NUMBER
@@ -51,8 +53,10 @@
             placeholder="e.g. 1234 5678 9123 0000"
             id="input-number"
             maxlength="19"
-            pattern="[0-9]+"
+            pattern="[0-9 ' ']+"
+            oninput="inputNumber()"
           />
+          <p></p>
         </label>
         <div class="form-flex">
           <label
@@ -63,14 +67,17 @@
                 maxlength="2"
                 placeholder="MM"
                 id="input-month"
-                pattern="[0-9]+"
+                pattern="[0-9]*"
+                data-pattern-validate
               />
+              <!-- pattern="[(0[1-9]|1[0-2])]" -->
               <input
                 type="text"
                 maxlength="2"
                 placeholder="YY"
                 id="input-year"
                 pattern="[0-9]+"
+                data-pattern-validate
               />
             </div>
           </label>
@@ -82,6 +89,7 @@
               maxlength="3"
               id="input-cvc"
               pattern="[0-9]+"
+              data-pattern-validate
             />
           </label>
         </div>

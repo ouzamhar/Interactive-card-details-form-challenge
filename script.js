@@ -10,52 +10,38 @@ const cvcCard = document.querySelector(".cvc");
 const cvcInput = document.getElementById("input-cvc");
 const btn = document.querySelector(".btn");
 
-nameInput.addEventListener("input", (event) => {
-  cardName.textContent = event.target.value;
-  if (!cardName.textContent) {
+function inputName() {
+  if (nameInput.value && nameInput.validity.valid) {
+    cardName.textContent = nameInput.value;
+  } else {
     cardName.textContent = "Jane Appleseed";
   }
-});
-numberInput.addEventListener("keyup", (event) => {
-  const len = numberInput.value.length;
-  if (event.keyCode != 8) {
-    if (len > 0 && numberInput.value.length % 5 === 0) {
-      numberInput.value = [
-        numberInput.value.slice(0, len - 1),
-        numberInput.value.slice(len - 1),
-      ].join(" ");
-    }
-  }
-  const children = cardNumber.children;
-  let j = 0;
-  if (len > 0) {
-    const array = numberInput.value.split(" ");
-    console.log(array);
+}
 
-    let i = 0;
-    while (array[i]) {
-      children[j].textContent = array[i];
-      i = i + 1;
-      j = j + 1;
-    }
-    while (children[j]) {
-      children[j].textContent = "";
-      j = j + 1;
-    }
+function inputNumber() {
+  let numbers = numberInput.value.replace(/\D/g, "").match(/\d{1,4}/g);
+  if (numbers && numberInput.validity.valid) {
+    numberInput.value = numbers.join(" ");
+    Array.from(cardNumber.children).forEach((span, index) => {
+      if (numbers[index]) {
+        span.textContent = numbers[index];
+      } else {
+        span.textContent = "";
+      }
+    });
   } else {
-    while (children[j]) {
-      children[j].textContent = "0000";
-      j = j + 1;
-    }
+    Array.from(cardNumber.children).forEach((span) => {
+      span.textContent = "0000";
+    });
   }
-});
+}
 
-cvcInput.addEventListener("keyup", (event) => {
-  cvcCard.textContent = cvcInput.value.length ? cvcInput.value : "000";
-});
-monthInput.addEventListener("keyup", (event) => {
-  expMonth.textContent = monthInput.value.length ? monthInput.value : "00";
-});
-yearInput.addEventListener("keyup", (event) => {
-  expYear.textContent = yearInput.value.length ? yearInput.value : "00";
-});
+// cvcInput.addEventListener("keyup", (event) => {
+//   cvcCard.textContent = cvcInput.value.length ? cvcInput.value : "000";
+// });
+// monthInput.addEventListener("keyup", (event) => {
+//   expMonth.textContent = monthInput.value.length ? monthInput.value : "00";
+// });
+// yearInput.addEventListener("keyup", (event) => {
+//   expYear.textContent = yearInput.value.length ? yearInput.value : "00";
+// });
