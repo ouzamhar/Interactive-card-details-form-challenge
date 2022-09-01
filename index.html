@@ -67,18 +67,18 @@
                 maxlength="2"
                 placeholder="MM"
                 id="input-month"
-                pattern="[0-9]*"
-                data-pattern-validate
+                pattern="(0[1-9]|1[0-2])"
+                oninput="getMonth()"
               />
-              <!-- pattern="[(0[1-9]|1[0-2])]" -->
               <input
                 type="text"
                 maxlength="2"
                 placeholder="YY"
                 id="input-year"
-                pattern="[0-9]+"
-                data-pattern-validate
+                pattern="[0-9][0-9]"
+                oninput="getYear()"
               />
+              <p></p>
             </div>
           </label>
           <label class="cvc-label"
@@ -88,9 +88,10 @@
               placeholder="e.g. 123"
               maxlength="3"
               id="input-cvc"
-              pattern="[0-9]+"
-              data-pattern-validate
+              pattern="[0-9][0-9][0-9]"
+              oninput="getCvc()"
             />
+            <p></p>
           </label>
         </div>
         <div class="btn">Confirm</div>

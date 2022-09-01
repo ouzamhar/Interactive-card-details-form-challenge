@@ -269,45 +269,41 @@ input:focus {
   border: 1px solid red;
 }
 
-#input-name:invalid + p::after {
-  content: "Wrong format, letters only";
-  /* position: absolute; */
-  display: block;
-  color: red;
-  margin-top: 0.5em;
-}
 #input-number:invalid + p::after {
   content: "Wrong format, numbers only";
-  /* position: absolute; */
   display: block;
   color: red;
   margin-top: 0.5em;
 }
 
-#input-month:invalid {
+#input-month:not(:focus):invalid,
+#input-year:not(:focus):invalid,
+#input-cvc:not(:focus):invalid {
   border: 1px solid red;
 }
-
-/* input:not(:focus):invalid {
-
-  border: 1px solid red;
-  width: 100%;
-} */
-
-/* input:invalid {
-  border: 1px yellow solid;
-} */
-
-/* input:not(:focus):not(:placeholder-shown):invalid {
-  content: "test";
+#input-month:not(:focus):invalid ~ p::after,
+#input-year:not(:focus):invalid + p::after {
+  content: "Invalid date";
+  position: absolute;
+  bottom: -1.5em;
+  left: 0;
   display: block;
+  color: red;
+}
+
+.form-flex {
+  position: relative;
+}
+
+.cvc-label {
+  position: relative;
+}
+
+#input-cvc:not(:focus):invalid + p::after {
+  content: "Invalid code";
   position: absolute;
-} */
-/* 
-.invalid {
-  color: var(--Red);
-  font-size: 0.7em;
-  margin-top: 0.5em;
-  font-weight: 500;
-  position: absolute;
-} */
+  bottom: -1.5em;
+  left: 0;
+  display: block;
+  color: red;
+}
