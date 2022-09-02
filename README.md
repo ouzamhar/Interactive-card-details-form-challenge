@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [https://vercel.com/ouzamhar/interactive-card-details-form-challenge](https://vercel.com/ouzamhar/interactive-card-details-form-challenge)
+- Live Site URL: [https://interactive-card-details-form-challenge-three.vercel.app/](https://interactive-card-details-form-challenge-three.vercel.app/)
 
 ## My process
 
