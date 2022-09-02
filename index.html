@@ -41,8 +41,10 @@
             type="text"
             placeholder="e.g. Jane Appleseed"
             id="input-name"
+            maxlength="25"
             pattern="[a-zA-Z\s]+"
             oninput="inputName()"
+            required
           />
           <p></p>
         </label>
@@ -55,6 +57,7 @@
             maxlength="19"
             pattern="[0-9 ' ']+"
             oninput="inputNumber()"
+            required
           />
           <p></p>
         </label>
@@ -69,6 +72,7 @@
                 id="input-month"
                 pattern="(0[1-9]|1[0-2])"
                 oninput="getMonth()"
+                required
               />
               <input
                 type="text"
@@ -77,6 +81,7 @@
                 id="input-year"
                 pattern="[0-9][0-9]"
                 oninput="getYear()"
+                required
               />
               <p></p>
             </div>
@@ -90,15 +95,16 @@
               id="input-cvc"
               pattern="[0-9][0-9][0-9]"
               oninput="getCvc()"
+              required
             />
             <p></p>
           </label>
         </div>
-        <div class="btn">Confirm</div>
+        <div class="btn confirm-btn">Confirm</div>
       </form>
       <div class="completed">
         <img src="./images/icon-complete.svg" alt="completed icon" />
-        <h3>Thank you</h3>
+        <h3>Thank you!</h3>
         <p>We've added your card details</p>
         <div class="btn">Continue</div>
       </div>

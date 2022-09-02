@@ -44,6 +44,7 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 .cards {
@@ -125,8 +126,7 @@ form {
   width: 100%;
   min-width: 260px;
   max-width: 400px;
-  /* border: 3px solid orange; */
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
   gap: 1.2em;
   margin-top: 2em;
@@ -140,7 +140,36 @@ label {
 }
 
 .completed {
+  width: 100%;
+  min-width: 260px;
+  max-width: 400px;
   display: none;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 2em;
+  width: 100%;
+}
+
+.completed img {
+  width: 65px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.completed h3 {
+  text-transform: uppercase;
+  font-size: 24px;
+  letter-spacing: 3px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  /* padding-bottom: 0; */
+}
+
+.completed p {
+  color: var(--Dark-grayish-violet);
+  font-size: 18px;
+  margin-bottom: 30px;
+  /* padding: 0px; */
 }
 
 input {
@@ -264,31 +293,25 @@ input:focus {
   }
 }
 
-#input-number:invalid,
-#input-name:invalid {
+/* error */
+form input.error-input:invalid,
+#input-number.wrong-format:invalid {
   border: 1px solid red;
 }
-
-#input-number:invalid + p::after {
+#input-number.empty-input:invalid ~ p::after,
+#input-name.empty-input:invalid ~ p::after {
+  content: "Can't be blank";
+  display: block;
+  display: block;
+  color: red;
+  margin-top: 10px;
+}
+#input-number.wrong-format:invalid ~ p::after {
   content: "Wrong format, numbers only";
   display: block;
-  color: red;
-  margin-top: 0.5em;
-}
-
-#input-month:not(:focus):invalid,
-#input-year:not(:focus):invalid,
-#input-cvc:not(:focus):invalid {
-  border: 1px solid red;
-}
-#input-month:not(:focus):invalid ~ p::after,
-#input-year:not(:focus):invalid + p::after {
-  content: "Invalid date";
-  position: absolute;
-  bottom: -1.5em;
-  left: 0;
   display: block;
   color: red;
+  margin-top: 10px;
 }
 
 .form-flex {
@@ -299,8 +322,21 @@ input:focus {
   position: relative;
 }
 
-#input-cvc:not(:focus):invalid + p::after {
-  content: "Invalid code";
+#input-month.wrong-format:invalid ~ p::after,
+#input-year.wrong-format:invalid + p::after,
+#input-cvc.wrong-format:invalid ~ p::after {
+  content: "wrong format";
+  position: absolute;
+  bottom: -1.5em;
+  left: 0;
+  display: block;
+  color: red;
+}
+
+#input-month.empty-input:invalid ~ p::after,
+#input-year.empty-input:invalid + p::after,
+#input-cvc.empty-input:invalid ~ p::after {
+  content: "Can't be blank";
   position: absolute;
   bottom: -1.5em;
   left: 0;

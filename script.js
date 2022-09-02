@@ -8,18 +8,43 @@ const expMonth = document.querySelector(".month");
 const expYear = document.querySelector(".year");
 const cvcCard = document.querySelector(".cvc");
 const cvcInput = document.getElementById("input-cvc");
-const btn = document.querySelector(".btn");
+const btn = document.querySelector(".confirm-btn");
+const completed = document.querySelector(".completed");
+const nameError = document.getElementById("name-error");
+
+document.querySelector("form").reset();
 
 function inputName() {
+  if (nameInput.value.length === 1) {
+    nameInput.value = nameInput.value.replace(/\s/, "");
+  }
   nameInput.value = nameInput.value.replace(/[^a-zA-Z\s]/g, "");
-  if (nameInput.value && nameInput.validity.valid) {
+  if (nameInput.value) {
     cardName.textContent = nameInput.value;
   } else {
     cardName.textContent = "Jane Appleseed";
   }
 }
 
+const inputs = document.querySelectorAll("input");
+inputs.forEach((input) => {
+  input.addEventListener("blur", function () {
+    if (!input.validity.valid) {
+      input.classList.add("error-input");
+      if (input.value) {
+        input.classList.add("wrong-format");
+      } else {
+        input.classList.add("empty-input");
+      }
+    }
+  });
+});
+
 function inputNumber() {
+  numberInput.classList.remove("wrong-format");
+  if (numberInput.value.length === 1) {
+    numberInput.value = numberInput.value.replace(/\s/, "");
+  }
   let numbers = numberInput.value.replace(/\D/g, "").match(/\d{1,4}/g);
   if (numbers && numberInput.validity.valid) {
     numberInput.value = numbers.join(" ");
@@ -34,6 +59,9 @@ function inputNumber() {
     Array.from(cardNumber.children).forEach((span) => {
       span.textContent = "0000";
     });
+  }
+  if (numberInput.value && !numberInput.validity.valid) {
+    numberInput.classList.add("wrong-format");
   }
 }
 
@@ -52,16 +80,6 @@ function getMonth() {
     expMonth.textContent = "00";
   }
 }
-
-monthInput.addEventListener("focusout", (event) => {
-  if (monthInput.value === "00") {
-    monthInput.value = "";
-    expMonth.textContent = "00";
-  }
-  if (!monthInput.validity.valid) {
-    expMonth.textContent = "00";
-  }
-});
 
 function getYear() {
   yearInput.value = yearInput.value.replace(/[^0-9]/g, "");
@@ -90,5 +108,31 @@ function getCvc() {
 cvcInput.addEventListener("focusout", (event) => {
   if (!cvcInput.validity.valid) {
     cvcCard.textContent = "000";
+  }
+});
+
+btn.addEventListener("click", (e) => {
+  e.preventDefault;
+  val = true;
+  for (elm of inputs) {
+    val = val && elm.validity.valid;
+    if (!elm.validity.valid) {
+      elm.classList.add("error-input");
+      if (elm.value) {
+        elm.classList.add("wrong-format");
+      } else {
+        elm.classList.add("empty-input");
+      }
+    }
+  }
+
+  if (val) {
+    if (numberInput.value < 19) {
+      val = false;
+      alert("invalid card number");
+    } else {
+      document.querySelector("form").style.display = "none";
+      completed.style.display = "flex";
+    }
   }
 });
