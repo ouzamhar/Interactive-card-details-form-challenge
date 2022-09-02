@@ -137,14 +137,12 @@ btn.addEventListener("click", (e) => {
       }
     }
   }
-
+  if (numberInput.value.length < 19) {
+    val = false;
+    numberInput.classList.add("wrong-numbers");
+  }
   if (val) {
-    if (numberInput.value.length < 19) {
-      val = false;
-      numberInput.classList.add("wrong-numbers");
-    } else {
-      document.querySelector("form").style.display = "none";
-      completed.style.display = "flex";
-    }
+    document.querySelector("form").style.display = "none";
+    completed.style.display = "flex";
   }
 });
