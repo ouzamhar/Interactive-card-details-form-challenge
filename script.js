@@ -66,6 +66,8 @@ function inputNumber() {
 }
 
 function getMonth() {
+  monthInput.classList.remove("wrong-format");
+  console.log(monthInput.value);
   monthInput.value = monthInput.value.replace(/[^0-9]/g, "");
   if (monthInput.value) {
     if (Number(monthInput.value[0]) > 1) {
@@ -80,6 +82,12 @@ function getMonth() {
     expMonth.textContent = "00";
   }
 }
+
+monthInput.addEventListener("focusout", (event) => {
+  if (!monthInput.validity.valid) {
+    expMonth.textContent = "00";
+  }
+});
 
 function getYear() {
   yearInput.value = yearInput.value.replace(/[^0-9]/g, "");
@@ -97,6 +105,9 @@ yearInput.addEventListener("focusout", (event) => {
 });
 
 function getCvc() {
+  cvcInput.classList.remove("empty-input");
+  cvcInput.classList.remove("error-input");
+  cvcInput.classList.remove("wrong-format");
   cvcInput.value = cvcInput.value.replace(/[^0-9]/g, "");
   if (cvcInput.value) {
     cvcCard.textContent = cvcInput.value;
