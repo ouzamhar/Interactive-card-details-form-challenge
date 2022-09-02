@@ -295,7 +295,8 @@ input:focus {
 
 /* error */
 form input.error-input:invalid,
-#input-number.wrong-format:invalid {
+#input-number.wrong-format:invalid,
+#input-number.wrong-numbers {
   border: 1px solid red;
 }
 #input-number.empty-input:invalid ~ p::after,
@@ -308,6 +309,13 @@ form input.error-input:invalid,
 }
 #input-number.wrong-format:invalid ~ p::after {
   content: "Wrong format, numbers only";
+  display: block;
+  display: block;
+  color: red;
+  margin-top: 10px;
+}
+#input-number.wrong-numbers ~ p::after {
+  content: "Invalid card number";
   display: block;
   display: block;
   color: red;

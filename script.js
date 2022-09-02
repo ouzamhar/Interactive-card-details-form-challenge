@@ -42,6 +42,7 @@ inputs.forEach((input) => {
 
 function inputNumber() {
   numberInput.classList.remove("wrong-format");
+  numberInput.classList.remove("wrong-numbers");
   if (numberInput.value.length === 1) {
     numberInput.value = numberInput.value.replace(/\s/, "");
   }
@@ -138,9 +139,9 @@ btn.addEventListener("click", (e) => {
   }
 
   if (val) {
-    if (numberInput.value < 19) {
+    if (numberInput.value.length < 19) {
       val = false;
-      alert("invalid card number");
+      numberInput.classList.add("wrong-numbers");
     } else {
       document.querySelector("form").style.display = "none";
       completed.style.display = "flex";
